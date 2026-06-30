@@ -1,0 +1,151 @@
+{
+  "site_name": "Dogedi",
+  "site_title": "Dogedi",
+  "logo_text": "Dogedi",
+  "tagline": "Your Daily Source for Crypto News, Analysis & Web3 Insights",
+  "instagram_account": "",
+  "twitter_account": "",
+  "github": "",
+  "facebook_account": "",
+  "whatsapp": "",
+  "base_url": "https://dogedi.com",
+  "site_keywords": [
+    {
+      "keyword": "cryptocurrency"
+    },
+    {
+      "keyword": "bitcoin"
+    },
+    {
+      "keyword": "ethereum"
+    },
+    {
+      "keyword": "crypto news"
+    },
+    {
+      "keyword": "DeFi"
+    },
+    {
+      "keyword": "NFT"
+    },
+    {
+      "keyword": "Web3"
+    },
+    {
+      "keyword": "blockchain"
+    },
+    {
+      "keyword": "altcoins"
+    },
+    {
+      "keyword": "meme coins"
+    },
+    {
+      "keyword": "dogecoin"
+    },
+    {
+      "keyword": "crypto market analysis"
+    },
+    {
+      "keyword": "Dogedi"
+    }
+  ],
+  "site_description": "Dogedi is your trusted source for cryptocurrency news, market analysis, and Web3 insights. Stay ahead of the market with expert coverage of Bitcoin, Ethereum, DeFi, NFTs, meme coins, and the latest blockchain developments.",
+  "seo_meta_title": "Dogedi - Crypto News, Bitcoin, Ethereum & Web3 Insights",
+  "seo_meta_description": "Stay ahead of the crypto market with Dogedi. Get breaking news, price analysis, and expert guides on Bitcoin, Ethereum, DeFi, NFTs, meme coins, and all things Web3.",
+  "seo_meta_keywords": "cryptocurrency, bitcoin, ethereum, DeFi, NFT, Web3, blockchain, altcoins, meme coins, crypto news, dogecoin, market analysis",
+  "contact_address": "Global",
+  "contact_phonenumber": "",
+  "contact_email": "info@dogedi.com",
+  "posts_per_page": 12,
+  "use_api_categories": false,
+  "predefined_categories": [
+    {
+      "slug": "bitcoin",
+      "name": "Bitcoin",
+      "description": "Breaking news, price analysis, and deep dives on the world's leading cryptocurrency"
+    },
+    {
+      "slug": "ethereum",
+      "name": "Ethereum",
+      "description": "Ethereum ecosystem updates, ETH price analysis, upgrades, and smart contract news"
+    },
+    {
+      "slug": "altcoins",
+      "name": "Altcoins",
+      "description": "Coverage of top alternative cryptocurrencies, emerging tokens, and market movers"
+    },
+    {
+      "slug": "defi",
+      "name": "DeFi",
+      "description": "Decentralized finance protocols, yield farming, liquidity, and lending platforms"
+    },
+    {
+      "slug": "nfts-web3",
+      "name": "NFTs & Web3",
+      "description": "NFT market trends, digital collectibles, metaverse, and the Web3 economy"
+    },
+    {
+      "slug": "market-analysis",
+      "name": "Market Analysis",
+      "description": "Technical analysis, price predictions, on-chain metrics, and macro market trends"
+    },
+    {
+      "slug": "blockchain",
+      "name": "Blockchain",
+      "description": "Blockchain technology, layer-2 solutions, consensus mechanisms, and protocol updates"
+    },
+    {
+      "slug": "meme-coins",
+      "name": "Meme Coins",
+      "description": "Dogecoin, Shiba Inu, and the latest meme coin news, launches, and community updates"
+    },
+    {
+      "slug": "regulation",
+      "name": "Regulation",
+      "description": "Crypto regulations, SEC updates, global policy changes, and compliance news"
+    },
+    {
+      "slug": "guides",
+      "name": "Guides",
+      "description": "Beginner-friendly how-tos, wallet setup, trading strategies, and crypto education"
+    }
+  ],
+  "navbar_groups": [
+    {
+      "label": "Bitcoin",
+      "slug": "bitcoin"
+    },
+    {
+      "label": "Ethereum",
+      "slug": "ethereum"
+    },
+    {
+      "label": "DeFi",
+      "slug": "defi"
+    },
+    {
+      "label": "Markets",
+      "slug": "market-analysis"
+    },
+    {
+      "label": "More",
+      "items": [
+        "altcoins",
+        "nfts-web3",
+        "blockchain",
+        "meme-coins",
+        "regulation",
+        "guides"
+      ]
+    }
+  ],
+  "featured_categories": [
+    "bitcoin",
+    "ethereum",
+    "defi",
+    "market-analysis"
+  ],
+  "podcast_cover_url": "https://res.cloudinary.com/yacloud/image/upload/v1614332851/ya-pod_gi1tmm.jpg",
+  "mood_cover_url": "/images/mood/v5/mood-v5-cover.jpg"
+}

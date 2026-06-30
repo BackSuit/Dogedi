@@ -1,0 +1,31 @@
+import Head from "next/head"
+import { Box } from "@chakra-ui/react"
+import dynamic from "next/dynamic"
+import Header from "../sections/header"
+
+const Footer = dynamic(() => import("../sections/footer"), { ssr: false })
+
+const Layout = ({ children }) => {
+  return (
+    <div className="root">
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#3B82F6" />
+      </Head>
+      <Header />
+      <Box
+        marginTop={{ base: "60px", md: "118px", lg: "138px" }}
+        id="__app"
+        pos="relative"
+      >
+        {children}
+      </Box>
+      <Footer />
+    </div>
+  )
+}
+
+export default Layout

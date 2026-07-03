@@ -7,6 +7,7 @@ import {
   countArticlesByCategory,
   fetchPaginated,
 } from "@/libs/api"
+import { assignCategoryPlaceholders } from "@/libs/categoryPlaceholders"
 import { CATEGORY_ID_ROUTE } from "src/constanst/routes"
 import config from "@/contents/site-settings.json"
 
@@ -52,7 +53,7 @@ export async function getStaticProps({ params }) {
 
     return {
       props: {
-        articles: articles || [],
+        articles: assignCategoryPlaceholders(articles || []),
         category: {
           name: category.name || params.slug,
           slug: category.slug || params.slug,

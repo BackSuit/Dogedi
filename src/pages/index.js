@@ -3,6 +3,10 @@ import Layout from "@/components/layout"
 import Meta from "@/components/meta"
 import NewsHero from "@/components/home/NewsHero"
 import { fetchFeatured, fetchHero, fetchHomeArticles } from "@/libs/api"
+import {
+  assignCategoryPlaceholder,
+  assignCategoryPlaceholders,
+} from "@/libs/categoryPlaceholders"
 
 const FeaturedCarousel = dynamic(() =>
   import("@/components/home/FeaturedCarousel")
@@ -77,9 +81,9 @@ export async function getStaticProps() {
     const featuredArticles = await fetchFeatured()
     return {
       props: {
-        homeArticles: homeArticles || [],
-        heroArticle: heroArticle || null,
-        featuredArticles: featuredArticles || [],
+        homeArticles: assignCategoryPlaceholders(homeArticles || []),
+        heroArticle: assignCategoryPlaceholder(heroArticle),
+        featuredArticles: assignCategoryPlaceholders(featuredArticles || []),
       },
       revalidate: 60,
     }

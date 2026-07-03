@@ -16,13 +16,15 @@ export default function HeroImage({ url, alt }) {
       p={0}
       overflow="hidden"
     >
-      <Image
-        src={url}
-        alt={alt}
-        fill
-        style={{ objectFit: "cover", objectPosition: "center" }}
-        quality={70}
-      />
+      {url && (
+        <Image
+          src={url}
+          alt={alt}
+          fill
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          quality={70}
+        />
+      )}
     </Flex>
   )
 }

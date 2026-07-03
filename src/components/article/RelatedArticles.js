@@ -11,9 +11,11 @@ import {
 } from "@chakra-ui/react"
 import { ARTICLE_ID_ROUTE } from "src/constanst/routes"
 import { formatDate } from "@/libs/date"
+import { getArticleImage } from "@/utils/categoryPlaceholder"
 
 function RelatedCard({ article }) {
-  const { title, slug, image_url, category, date } = article
+  const { title, slug, category, date } = article
+  const displayImage = getArticleImage(article)
 
   return (
     <Box
@@ -32,9 +34,9 @@ function RelatedCard({ article }) {
       }}
     >
       <Box position="relative" height="160px">
-        {image_url && (
+        {displayImage && (
           <Image
-            src={image_url}
+            src={displayImage}
             alt={title}
             fill
             style={{ objectFit: "cover" }}

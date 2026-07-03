@@ -2,6 +2,7 @@ import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { fetchAuthorArticles, fetchAuthorsSlug, getAuthor } from "@/libs/api"
+import { assignCategoryPlaceholders } from "@/libs/categoryPlaceholders"
 import { AUTHOR_ID_ROUTE } from "src/constanst/routes"
 
 export default function ArticlesByAuthor({ articles, author }) {
@@ -48,7 +49,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      articles,
+      articles: assignCategoryPlaceholders(articles),
       author: {
         name: author,
         slug: params.slug,

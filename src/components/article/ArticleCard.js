@@ -16,6 +16,7 @@ import {
   CATEGORY_ID_ROUTE,
   ARTICLE_ID_ROUTE,
 } from "src/constanst/routes"
+import { getArticleImage } from "@/utils/categoryPlaceholder"
 
 const ArticleLink = ({ children, href, ...restProps }) => (
   <ChakraLink
@@ -34,7 +35,8 @@ const ArticleLink = ({ children, href, ...restProps }) => (
 )
 
 const Article = ({ article }) => {
-  const { title, slug, excerpt, image_url, authors, category } = article
+  const { title, slug, excerpt, authors, category } = article
+  const displayImage = getArticleImage(article)
   const excerptSplit = excerpt?.split(" ")
   return (
     <RenderInView>
@@ -68,7 +70,7 @@ const Article = ({ article }) => {
             overflow="hidden"
           >
             <Skeleton height="100%" width="100%" isLoaded={inView}>
-              {inView && image_url && (
+              {inView && displayImage && (
                 <Image
                   width={500}
                   height={500}
@@ -78,7 +80,7 @@ const Article = ({ article }) => {
                     height: "auto",
                     maxHeight: "280px",
                   }}
-                  src={image_url}
+                  src={displayImage}
                   alt={title}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
                   quality={50}

@@ -3,6 +3,7 @@ import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { countArticles, fetchArticles, searchArticles } from "@/libs/api"
+import { assignCategoryPlaceholders } from "@/libs/categoryPlaceholders"
 import { ARTICLE_ROUTE } from "src/constanst/routes"
 
 export default function ArticlesPage({ articles, pagination, searchQuery }) {
@@ -63,7 +64,7 @@ export async function getServerSideProps({ query }) {
 
   return {
     props: {
-      articles,
+      articles: assignCategoryPlaceholders(articles),
       pagination,
       searchQuery,
     },

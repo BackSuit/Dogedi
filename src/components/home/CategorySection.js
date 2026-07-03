@@ -13,9 +13,11 @@ import {
 import { HiChevronRight as ChevronRightIcon } from "@/components/icons"
 import { ARTICLE_ID_ROUTE, CATEGORY_ID_ROUTE } from "src/constanst/routes"
 import { formatDate } from "@/libs/date"
+import { getArticleImage } from "@/utils/categoryPlaceholder"
 
 function CompactCard({ article }) {
-  const { title, slug, image_url, category, date, excerpt } = article
+  const { title, slug, category, date, excerpt } = article
+  const displayImage = getArticleImage(article)
 
   return (
     <Box
@@ -35,9 +37,9 @@ function CompactCard({ article }) {
       }}
     >
       <Box position="relative" height={{ base: "180px", md: "200px" }}>
-        {image_url && (
+        {displayImage && (
           <Image
-            src={image_url}
+            src={displayImage}
             alt={title}
             fill
             style={{ objectFit: "cover" }}

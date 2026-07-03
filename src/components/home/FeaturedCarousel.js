@@ -13,6 +13,7 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from "@/components/icons"
 import { ARTICLE_ID_ROUTE } from "src/constanst/routes"
 import { formatDate } from "@/libs/date"
+import { getArticleImage } from "@/utils/categoryPlaceholder"
 
 export default function FeaturedCarousel({ articles }) {
   const [current, setCurrent] = useState(0)
@@ -138,7 +139,8 @@ export default function FeaturedCarousel({ articles }) {
 }
 
 function CarouselSlide({ article, isActive }) {
-  const { title, slug, excerpt, image_url, category, date, authors } = article
+  const { title, slug, excerpt, category, date, authors } = article
+  const displayImage = getArticleImage(article)
 
   return (
     <Box
@@ -150,15 +152,18 @@ function CarouselSlide({ article, isActive }) {
       opacity={isActive ? 1 : 0}
       transition="opacity 0.6s ease"
       pointerEvents={isActive ? "auto" : "none"}
+      bg="gray.800"
     >
-      <Image
-        src={image_url}
-        alt={title}
-        fill
-        style={{ objectFit: "cover" }}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
-        quality={70}
-      />
+      {displayImage && (
+        <Image
+          src={displayImage}
+          alt={title}
+          fill
+          style={{ objectFit: "cover" }}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
+          quality={70}
+        />
+      )}
       <Box
         position="absolute"
         inset="0"

@@ -12,11 +12,13 @@ import {
 import { ARTICLE_ID_ROUTE, CATEGORY_ID_ROUTE } from "src/constanst/routes"
 import { formatDate } from "@/libs/date"
 import RenderInView from "../RenderInView"
+import { getArticleImage } from "@/utils/categoryPlaceholder"
 
 function MainStory({ article }) {
   if (!article) return null
 
-  const { title, slug, excerpt, image_url, category, date, authors } = article
+  const { title, slug, excerpt, category, date, authors } = article
+  const displayImage = getArticleImage(article)
 
   return (
     <Box
@@ -29,16 +31,19 @@ function MainStory({ article }) {
       height={{ base: "350px", md: "480px", lg: "520px" }}
       _hover={{ "& .hero-overlay": { bg: "rgba(0,0,0,0.65)" } }}
       transition="transform 0.3s ease, box-shadow 0.3s ease"
+      bg="gray.800"
     >
-      <Image
-        src={image_url}
-        alt={title}
-        fill
-        style={{ objectFit: "cover" }}
-        quality={80}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
-        priority
-      />
+      {displayImage && (
+        <Image
+          src={displayImage}
+          alt={title}
+          fill
+          style={{ objectFit: "cover" }}
+          quality={80}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
+          priority
+        />
+      )}
       <Box
         className="hero-overlay"
         position="absolute"
@@ -120,7 +125,7 @@ function LatestNewsSidebar({ articles }) {
           textTransform="uppercase"
           letterSpacing="0.08em"
         >
-          Latest Opportunities
+          Latest Stories
         </Heading>
       </Box>
       <VStack
@@ -145,7 +150,8 @@ function LatestNewsSidebar({ articles }) {
 }
 
 function SidebarItem({ article, index }) {
-  const { title, slug, category, date, image_url } = article
+  const { title, slug, category, date } = article
+  const displayImage = getArticleImage(article)
 
   return (
     <HStack
@@ -158,7 +164,7 @@ function SidebarItem({ article, index }) {
       transition="background 0.2s"
       align="flex-start"
     >
-      {image_url && (
+      {displayImage && (
         <Box
           flexShrink={0}
           w="70px"
@@ -168,7 +174,7 @@ function SidebarItem({ article, index }) {
           position="relative"
         >
           <Image
-            src={image_url}
+            src={displayImage}
             alt={title}
             fill
             style={{ objectFit: "cover" }}

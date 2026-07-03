@@ -2,6 +2,7 @@ import Layout from "@/components/layout"
 import ArticleList from "@/components/article/ArticleList"
 import Meta from "@/components/meta"
 import { countArticles, fetchPaginated } from "@/libs/api"
+import { assignCategoryPlaceholders } from "@/libs/categoryPlaceholders"
 import { ARTICLE_PAGE_ROUTE } from "src/constanst/routes"
 import config from "@/contents/site-settings.json"
 
@@ -34,7 +35,7 @@ export async function getStaticProps({ params }) {
     }
     return {
       props: {
-        articles: articles || [],
+        articles: assignCategoryPlaceholders(articles || []),
         pagination,
         page,
       },

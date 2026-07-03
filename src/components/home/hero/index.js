@@ -9,9 +9,10 @@ import HeroExcerpt from "./HeroExcerpt"
 import HeroAuthorCategory from "./HeroAuthorCategory"
 import PrimaryButton from "@/components/buttons/PrimaryButton"
 import { ARTICLE_ID_ROUTE } from "src/constanst/routes"
+import { getArticleImage } from "@/utils/categoryPlaceholder"
 
 export function Hero({ article }) {
-  const url = article?.image_url
+  const url = getArticleImage(article)
   const textSize = useBreakpointValue({ base: "sm", lg: "md" })
 
   return (

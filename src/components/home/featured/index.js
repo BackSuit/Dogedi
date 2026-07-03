@@ -9,11 +9,14 @@ import HeroAuthorCategory from "../hero/HeroAuthorCategory"
 import HeroExcerpt from "../hero/HeroExcerpt"
 import HeroTitle from "../hero/HeroTitle"
 import { ARTICLE_ID_ROUTE } from "src/constanst/routes"
+import { getArticleImage } from "@/utils/categoryPlaceholder"
 
 export default function FeaturedArticle({ article, reverse, btnColor }) {
   const titleSize = useBreakpointValue({ base: "lg", md: "xl" })
   const titleContainerWidth = useBreakpointValue({ base: "90%", md: "85%" })
   const textSize = useBreakpointValue({ base: "sm", lg: "md" })
+
+  const displayImage = getArticleImage(article)
 
   return (
     <RenderInView>
@@ -48,9 +51,9 @@ export default function FeaturedArticle({ article, reverse, btnColor }) {
               bg="gray.50"
             >
               <Skeleton height="100%" width="100%" isLoaded={inView}>
-                {inView && (
+                {inView && displayImage && (
                   <Image
-                    src={article?.image_url}
+                    src={displayImage}
                     alt={article?.title}
                     width={360}
                     height={360}

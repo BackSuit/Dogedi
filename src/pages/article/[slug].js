@@ -29,11 +29,17 @@ import { fetchArticle, fetchArticleSlugs, fetchByCategory } from "@/libs/api"
 import markdownToHtml from "@/libs/markdownToHTML"
 import { formatDate } from "@/libs/date"
 import { ARTICLE_ID_ROUTE } from "src/constanst/routes"
+import {
+  assignCategoryPlaceholder,
+  assignCategoryPlaceholders,
+} from "@/libs/categoryPlaceholders"
+import { getArticleImage } from "@/utils/categoryPlaceholder"
 
 export default function Article({ article, relatedArticles }) {
   const [comments, setComments] = useState([])
   const { title, slug, excerpt, date, category, authors, image_url, content } =
     article
+  const coverImage = getArticleImage(article)
 
   const { ref, inView } = useInView({
     rootMargin: "50px 0px",
@@ -181,7 +187,7 @@ export default function Article({ article, relatedArticles }) {
                 {readTime?.text}
               </Text>
             </Stack>
-            <ArticleCoverImage featuredImage={image_url} alt={title} />
+            <ArticleCoverImage featuredImage={coverImage} alt={title} />
           </header>
           <ArticleBody body={content} />
           <ArticleShare url={fullUrl} />
@@ -231,10 +237,10 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       article: {
-        ...article,
+        ...assignCategoryPlaceholder(article),
         content,
       },
-      relatedArticles,
+      relatedArticles: assignCategoryPlaceholders(relatedArticles),
     },
     revalidate: 60, // Revalidate every 60 seconds
   }
